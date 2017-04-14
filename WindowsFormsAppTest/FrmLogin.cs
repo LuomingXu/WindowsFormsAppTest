@@ -22,6 +22,7 @@ namespace WindowsFormsAppTest
         public FrmLogin()
         {
             InitializeComponent();
+            textID.Focus();
         }
 
         private void InitializeComponent()
@@ -47,6 +48,7 @@ namespace WindowsFormsAppTest
             // 
             // Cancle
             // 
+            this.Cancle.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancle.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Cancle.Location = new System.Drawing.Point(355, 236);
             this.Cancle.Name = "Cancle";
@@ -95,6 +97,8 @@ namespace WindowsFormsAppTest
             // 
             // FrmLogin
             // 
+            this.AcceptButton = this.Login;
+            this.CancelButton = this.Cancle;
             this.ClientSize = new System.Drawing.Size(676, 417);
             this.Controls.Add(this.textPWD);
             this.Controls.Add(this.textID);
