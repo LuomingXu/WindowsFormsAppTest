@@ -30,6 +30,7 @@
         {
             this.Login_In = new System.Windows.Forms.Button();
             this.MainExit = new System.Windows.Forms.Button();
+            this.btnMath = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Login_In
@@ -45,7 +46,7 @@
             // 
             // MainExit
             // 
-            this.MainExit.Location = new System.Drawing.Point(352, 384);
+            this.MainExit.Location = new System.Drawing.Point(363, 521);
             this.MainExit.Name = "MainExit";
             this.MainExit.Size = new System.Drawing.Size(229, 87);
             this.MainExit.TabIndex = 1;
@@ -53,11 +54,22 @@
             this.MainExit.UseVisualStyleBackColor = true;
             this.MainExit.Click += new System.EventHandler(this.MainExit_Click);
             // 
+            // btnMath
+            // 
+            this.btnMath.Location = new System.Drawing.Point(318, 337);
+            this.btnMath.Name = "btnMath";
+            this.btnMath.Size = new System.Drawing.Size(319, 101);
+            this.btnMath.TabIndex = 2;
+            this.btnMath.Text = "三阶矩阵求行列式";
+            this.btnMath.UseVisualStyleBackColor = true;
+            this.btnMath.Click += new System.EventHandler(this.BtnMath_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1010, 693);
+            this.Controls.Add(this.btnMath);
             this.Controls.Add(this.MainExit);
             this.Controls.Add(this.Login_In);
             this.Name = "FrmMain";
@@ -73,6 +85,7 @@
 
         private System.Windows.Forms.Button Login_In;
         private System.Windows.Forms.Button MainExit;
+        private System.Windows.Forms.Button btnMath;
     }
 }
 

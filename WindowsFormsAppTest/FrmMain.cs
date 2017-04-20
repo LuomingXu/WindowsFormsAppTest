@@ -52,5 +52,11 @@ namespace WindowsFormsAppTest
         {
             Application.Exit();
         }
+
+        private void BtnMath_Click(object sender, EventArgs e)
+        {
+            frmMath frm = new frmMath();
+            frm.Show();
+        }
     }
 }
