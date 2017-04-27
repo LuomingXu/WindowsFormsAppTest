@@ -43,7 +43,7 @@
             this.txtArray1.Name = "txtArray1";
             this.txtArray1.Size = new System.Drawing.Size(401, 187);
             this.txtArray1.TabIndex = 0;
-            this.txtArray1.TextChanged += new System.EventHandler(this.txtArray1_TextChanged);
+            this.txtArray1.TextChanged += new System.EventHandler(this.TxtArray1_TextChanged);
             // 
             // txtArray2
             // 

@@ -17,7 +17,7 @@ namespace WindowsFormsAppTest
             InitializeComponent();
         }
 
-        private void txtArray1_TextChanged(object sender, EventArgs e)
+        private void TxtArray1_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -29,9 +29,43 @@ namespace WindowsFormsAppTest
             txtArray1.Focus();
         }
 
+        double[] doub = new double[512];
+        int a = 0;
+        string str = string.Empty;
+
         private void BtnOK_Click(object sender, EventArgs e)
         {
+            //string str = txtArray1.Text.Trim().ToString();
+            //double doub = 0;
+            //if (double.TryParse(str, out doub))
+            //{
+            //    MessageBox.Show(doub.ToString());
 
+            //}
+            //else
+            //{
+            //    MessageBox.Show(str.ToString());
+            //}
+
+ //           private void simpleButton1_Click(object sender, EventArgs e)
+ //           {
+                a = ++a;
+                str = txtArray1.Text.Trim().ToString();
+
+                if (double.TryParse(str, out double doubs))
+                {
+                    MessageBox.Show("添加成功");
+                MessageBox.Show(doub.ToString());
+                doub[a] = doubs;
+                }
+                else
+                {
+                    MessageBox.Show("类型不正确");
+                MessageBox.Show(str.ToString());
+            }
+            //           }
+
+            txtArray2.Text = str;
         }
     }
 }
