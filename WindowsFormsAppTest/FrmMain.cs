@@ -115,5 +115,73 @@ namespace WindowsFormsAppTest
                 frmStu.txbNumber.Focus();
             }
         }
+
+        /// <summary>
+        /// 主页显示时间
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = DateTime.Now.ToShortDateString() + DateTime.Now.ToLongTimeString();
+        }
+
+        /// <summary>
+        /// 各种事件显示的测试
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDateShow_Click(object sender, EventArgs e)
+        {
+            string strDate = string.Empty;
+            strDate = dtpBirthday.Value.ToString();
+            MessageBox.Show("dtpBirthday.Value.ToString" + strDate);
+
+            strDate = dtpBirthday.Text.Trim();
+            MessageBox.Show("dtpBirthday.Text.Trim" + strDate);
+
+            strDate = DateTime.Now.Date.ToShortDateString();
+            MessageBox.Show("DateTime.Now.Date.ToShortDateString" + strDate);
+
+            strDate = DateTime.Now.DayOfWeek.ToString();
+            MessageBox.Show("DateTime.Now.DayOfWeek.ToString" + strDate);
+        }
+
+        private void lbPgLa1_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                string strTemp = string.Empty;
+
+                strTemp = lbPgLa1.SelectedItem.ToString();
+                lbPgLa2.Items.Add(strTemp);
+                lbPgLa1.Items.Remove(lbPgLa1.SelectedItem);
+            }
+            catch
+            {
+            }
+            
+        }
+        private void lbPgLa2_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                string strTemp = string.Empty;
+
+                strTemp = lbPgLa2.SelectedItem.ToString();
+                lbPgLa1.Items.Add(strTemp);
+                lbPgLa2.Items.Remove(lbPgLa2.SelectedItem);
+            }
+            catch
+            {
+            }
+            
+        }
+
+        private void btnSchoolStdShow_Click(object sender, EventArgs e)
+        {
+            FormStdInfoInSchool frmstdInfo = new FormStdInfoInSchool();
+            frmstdInfo.Show();
+        }
     }
 }
