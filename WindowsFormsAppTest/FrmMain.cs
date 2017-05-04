@@ -147,8 +147,14 @@ namespace WindowsFormsAppTest
             MessageBox.Show("DateTime.Now.DayOfWeek.ToString" + strDate);
         }
 
+        /// <summary>
+        /// listBox的尝试
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbPgLa1_DoubleClick(object sender, EventArgs e)
         {
+            //try与catch来避免一个listBox里面全部点没有了之后出现的错误
             try
             {
                 string strTemp = string.Empty;
@@ -178,6 +184,11 @@ namespace WindowsFormsAppTest
             
         }
 
+        /// <summary>
+        /// 所有学生信息的出现的新窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSchoolStdShow_Click(object sender, EventArgs e)
         {
             FormStdInfoInSchool frmstdInfo = new FormStdInfoInSchool();
