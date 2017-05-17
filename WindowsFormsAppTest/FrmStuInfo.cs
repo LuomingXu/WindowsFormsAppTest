@@ -51,5 +51,47 @@ namespace WindowsFormsAppTest
             cmbSheng.Items.Add("上海");
             cmbSheng.Items.Add("浙江");
         }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            string strNumber = string.Empty;
+            string strName = string.Empty;
+            string strClass = string.Empty;
+            string strGender = string.Empty;
+            string strAddress = string.Empty;
+
+            string strSQL = string.Empty;
+
+            strNumber = txbNumber.Text.Trim();
+            strName = txtName.Text.Trim();
+            strClass = txbClass.Text.Trim();
+            if (rdbMale.Checked)
+            {
+                strGender = "男";
+            }
+            else
+            {
+                strGender = "女";
+            }
+            strAddress = cmbSheng.Text.Trim() + cmbShi.Text.Trim();
+
+            strSQL = $"insert into 学生信息表(学号,姓名,班级,性别,家庭住址) " +
+                $"values('{strNumber}','{strName}', '{strClass}','{strGender}','{strAddress}')";
+        }
+
+        private void btnSearchByNumber_Click(object sender, EventArgs e)
+        {
+            string strNumber = string.Empty;
+
+            string strSQL = string.Empty;
+
+            strNumber = txbNumber.Text.Trim();
+
+            strSQL = $"select 学生信息表.学号,学生信息表.姓名,课程信息表.课程编号,成绩表.成绩  " +
+                $"from 学生信息表,课程信息表,成绩表  " +
+                $"where 学生信息表.学号='{strNumber}' and 成绩表.学号='{strNumber}' " +
+                $"and 课程信息表.课程编号=成绩表.课程编号";
+
+        }
     }
 }

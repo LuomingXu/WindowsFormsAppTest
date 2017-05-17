@@ -76,20 +76,20 @@
             this.窗口ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.cmsListBox = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.新建ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsFromMain = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除第一行ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnDateShow = new System.Windows.Forms.Button();
             this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
             this.lbPgLa1 = new System.Windows.Forms.ListBox();
             this.lbPgLa2 = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.新建ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除第一行ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSchoolStdShow = new System.Windows.Forms.Button();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -466,11 +466,17 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 869);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 867);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1576, 36);
+            this.statusStrip1.Size = new System.Drawing.Size(1576, 38);
             this.statusStrip1.TabIndex = 18;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(304, 33);
+            this.toolStripStatusLabel1.Text = "版权所有,盗版必究 : 徐络溟";
             // 
             // cmsListBox
             // 
@@ -481,6 +487,18 @@
             this.cmsListBox.Name = "contextMenuStrip1";
             this.cmsListBox.Size = new System.Drawing.Size(162, 80);
             // 
+            // 新建ToolStripMenuItem1
+            // 
+            this.新建ToolStripMenuItem1.Name = "新建ToolStripMenuItem1";
+            this.新建ToolStripMenuItem1.Size = new System.Drawing.Size(161, 38);
+            this.新建ToolStripMenuItem1.Text = "新建";
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(161, 38);
+            this.删除ToolStripMenuItem.Text = "删除";
+            // 
             // cmsFromMain
             // 
             this.cmsFromMain.ImageScalingSize = new System.Drawing.Size(32, 32);
@@ -489,6 +507,18 @@
             this.删除第一行ToolStripMenuItem});
             this.cmsFromMain.Name = "contextMenuStrip2";
             this.cmsFromMain.Size = new System.Drawing.Size(234, 80);
+            // 
+            // 保存ToolStripMenuItem
+            // 
+            this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(233, 38);
+            this.保存ToolStripMenuItem.Text = "保存";
+            // 
+            // 删除第一行ToolStripMenuItem
+            // 
+            this.删除第一行ToolStripMenuItem.Name = "删除第一行ToolStripMenuItem";
+            this.删除第一行ToolStripMenuItem.Size = new System.Drawing.Size(233, 38);
+            this.删除第一行ToolStripMenuItem.Text = "删除第一行";
             // 
             // timer1
             // 
@@ -554,30 +584,6 @@
             this.panel2.Size = new System.Drawing.Size(690, 340);
             this.panel2.TabIndex = 25;
             // 
-            // 新建ToolStripMenuItem1
-            // 
-            this.新建ToolStripMenuItem1.Name = "新建ToolStripMenuItem1";
-            this.新建ToolStripMenuItem1.Size = new System.Drawing.Size(161, 38);
-            this.新建ToolStripMenuItem1.Text = "新建";
-            // 
-            // 删除ToolStripMenuItem
-            // 
-            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(161, 38);
-            this.删除ToolStripMenuItem.Text = "删除";
-            // 
-            // 保存ToolStripMenuItem
-            // 
-            this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(233, 38);
-            this.保存ToolStripMenuItem.Text = "保存";
-            // 
-            // 删除第一行ToolStripMenuItem
-            // 
-            this.删除第一行ToolStripMenuItem.Name = "删除第一行ToolStripMenuItem";
-            this.删除第一行ToolStripMenuItem.Size = new System.Drawing.Size(233, 38);
-            this.删除第一行ToolStripMenuItem.Text = "删除第一行";
-            // 
             // btnSchoolStdShow
             // 
             this.btnSchoolStdShow.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -588,12 +594,6 @@
             this.btnSchoolStdShow.Text = "学校学生信息显示";
             this.btnSchoolStdShow.UseVisualStyleBackColor = true;
             this.btnSchoolStdShow.Click += new System.EventHandler(this.btnSchoolStdShow_Click);
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(290, 33);
-            this.toolStripStatusLabel1.Text = "版权所有,盗版必究:徐络溟";
             // 
             // FrmMain
             // 

@@ -40,11 +40,17 @@
             this.cmbShi = new System.Windows.Forms.ComboBox();
             this.cmbSheng = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.rdbFemale = new System.Windows.Forms.RadioButton();
+            this.rdbMale = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpHoppies = new System.Windows.Forms.TabPage();
             this.tpExperience = new System.Windows.Forms.TabPage();
             this.tpSchool = new System.Windows.Forms.TabPage();
+            this.btnSearchByNumber = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -52,9 +58,9 @@
             // 
             // txbClass
             // 
-            this.txbClass.Location = new System.Drawing.Point(156, 101);
+            this.txbClass.Location = new System.Drawing.Point(156, 148);
             this.txbClass.Name = "txbClass";
-            this.txbClass.Size = new System.Drawing.Size(218, 35);
+            this.txbClass.Size = new System.Drawing.Size(206, 35);
             this.txbClass.TabIndex = 18;
             // 
             // txbNumber
@@ -67,7 +73,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 112);
+            this.label6.Location = new System.Drawing.Point(22, 148);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 24);
             this.label6.TabIndex = 16;
@@ -91,6 +97,7 @@
             this.btnOK.TabIndex = 19;
             this.btnOK.Text = "提交";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
@@ -105,7 +112,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 199);
+            this.label1.Location = new System.Drawing.Point(24, 285);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 24);
             this.label1.TabIndex = 21;
@@ -114,7 +121,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(544, 202);
+            this.label4.Location = new System.Drawing.Point(542, 288);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 24);
             this.label4.TabIndex = 25;
@@ -123,7 +130,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(282, 199);
+            this.label3.Location = new System.Drawing.Point(280, 285);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 24);
             this.label3.TabIndex = 24;
@@ -132,7 +139,7 @@
             // cmbShi
             // 
             this.cmbShi.FormattingEnabled = true;
-            this.cmbShi.Location = new System.Drawing.Point(364, 199);
+            this.cmbShi.Location = new System.Drawing.Point(362, 285);
             this.cmbShi.Name = "cmbShi";
             this.cmbShi.Size = new System.Drawing.Size(121, 32);
             this.cmbShi.TabIndex = 23;
@@ -140,7 +147,7 @@
             // cmbSheng
             // 
             this.cmbSheng.FormattingEnabled = true;
-            this.cmbSheng.Location = new System.Drawing.Point(142, 196);
+            this.cmbSheng.Location = new System.Drawing.Point(140, 282);
             this.cmbSheng.Name = "cmbSheng";
             this.cmbSheng.Size = new System.Drawing.Size(121, 32);
             this.cmbSheng.TabIndex = 22;
@@ -148,6 +155,11 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtName);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.rdbFemale);
+            this.panel1.Controls.Add(this.rdbMale);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label6);
@@ -157,16 +169,63 @@
             this.panel1.Controls.Add(this.txbClass);
             this.panel1.Controls.Add(this.cmbSheng);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(109, 64);
+            this.panel1.Location = new System.Drawing.Point(99, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(590, 250);
+            this.panel1.Size = new System.Drawing.Size(590, 372);
             this.panel1.TabIndex = 26;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(156, 85);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(206, 35);
+            this.txtName.TabIndex = 30;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(24, 85);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 24);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "姓名";
+            // 
+            // rdbFemale
+            // 
+            this.rdbFemale.AutoSize = true;
+            this.rdbFemale.Location = new System.Drawing.Point(284, 218);
+            this.rdbFemale.Name = "rdbFemale";
+            this.rdbFemale.Size = new System.Drawing.Size(65, 28);
+            this.rdbFemale.TabIndex = 28;
+            this.rdbFemale.TabStop = true;
+            this.rdbFemale.Text = "女";
+            this.rdbFemale.UseVisualStyleBackColor = true;
+            // 
+            // rdbMale
+            // 
+            this.rdbMale.AutoSize = true;
+            this.rdbMale.Location = new System.Drawing.Point(174, 218);
+            this.rdbMale.Name = "rdbMale";
+            this.rdbMale.Size = new System.Drawing.Size(65, 28);
+            this.rdbMale.TabIndex = 27;
+            this.rdbMale.TabStop = true;
+            this.rdbMale.Text = "男";
+            this.rdbMale.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 222);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 24);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "性别";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnOK);
-            this.panel2.Location = new System.Drawing.Point(109, 654);
+            this.panel2.Location = new System.Drawing.Point(99, 678);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(428, 100);
             this.panel2.TabIndex = 27;
@@ -176,7 +235,7 @@
             this.tabControl1.Controls.Add(this.tpHoppies);
             this.tabControl1.Controls.Add(this.tpExperience);
             this.tabControl1.Controls.Add(this.tpSchool);
-            this.tabControl1.Location = new System.Drawing.Point(109, 348);
+            this.tabControl1.Location = new System.Drawing.Point(99, 402);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(536, 248);
@@ -211,11 +270,22 @@
             this.tpSchool.Text = "学校";
             this.tpSchool.UseVisualStyleBackColor = true;
             // 
+            // btnSearchByNumber
+            // 
+            this.btnSearchByNumber.Location = new System.Drawing.Point(549, 691);
+            this.btnSearchByNumber.Name = "btnSearchByNumber";
+            this.btnSearchByNumber.Size = new System.Drawing.Size(235, 79);
+            this.btnSearchByNumber.TabIndex = 29;
+            this.btnSearchByNumber.Text = "依据查询成绩";
+            this.btnSearchByNumber.UseVisualStyleBackColor = true;
+            this.btnSearchByNumber.Click += new System.EventHandler(this.btnSearchByNumber_Click);
+            // 
             // FrmStuInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 801);
+            this.Controls.Add(this.btnSearchByNumber);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -249,5 +319,11 @@
         private System.Windows.Forms.TabPage tpHoppies;
         private System.Windows.Forms.TabPage tpExperience;
         private System.Windows.Forms.TabPage tpSchool;
+        private System.Windows.Forms.RadioButton rdbFemale;
+        private System.Windows.Forms.RadioButton rdbMale;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnSearchByNumber;
     }
 }
