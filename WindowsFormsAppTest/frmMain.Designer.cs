@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.Login_In = new System.Windows.Forms.Button();
             this.MainExit = new System.Windows.Forms.Button();
-            this.btnMath = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.rdbMan = new System.Windows.Forms.RadioButton();
             this.rdbWoman = new System.Windows.Forms.RadioButton();
@@ -118,16 +117,6 @@
             this.MainExit.Text = "退出";
             this.MainExit.UseVisualStyleBackColor = true;
             this.MainExit.Click += new System.EventHandler(this.MainExit_Click);
-            // 
-            // btnMath
-            // 
-            this.btnMath.Location = new System.Drawing.Point(80, 310);
-            this.btnMath.Name = "btnMath";
-            this.btnMath.Size = new System.Drawing.Size(319, 101);
-            this.btnMath.TabIndex = 2;
-            this.btnMath.Text = "三阶矩阵求行列式";
-            this.btnMath.UseVisualStyleBackColor = true;
-            this.btnMath.Click += new System.EventHandler(this.BtnMath_Click);
             // 
             // label1
             // 
@@ -466,16 +455,16 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 867);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 869);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1576, 38);
+            this.statusStrip1.Size = new System.Drawing.Size(1576, 36);
             this.statusStrip1.TabIndex = 18;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(304, 33);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(304, 31);
             this.toolStripStatusLabel1.Text = "版权所有,盗版必究 : 徐络溟";
             // 
             // cmsListBox
@@ -528,7 +517,7 @@
             // btnDateShow
             // 
             this.btnDateShow.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDateShow.Location = new System.Drawing.Point(96, 540);
+            this.btnDateShow.Location = new System.Drawing.Point(80, 384);
             this.btnDateShow.Name = "btnDateShow";
             this.btnDateShow.Size = new System.Drawing.Size(271, 77);
             this.btnDateShow.TabIndex = 21;
@@ -538,7 +527,7 @@
             // 
             // dtpBirthday
             // 
-            this.dtpBirthday.Location = new System.Drawing.Point(96, 478);
+            this.dtpBirthday.Location = new System.Drawing.Point(80, 322);
             this.dtpBirthday.Name = "dtpBirthday";
             this.dtpBirthday.Size = new System.Drawing.Size(200, 35);
             this.dtpBirthday.TabIndex = 22;
@@ -587,7 +576,7 @@
             // btnSchoolStdShow
             // 
             this.btnSchoolStdShow.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSchoolStdShow.Location = new System.Drawing.Point(80, 710);
+            this.btnSchoolStdShow.Location = new System.Drawing.Point(80, 540);
             this.btnSchoolStdShow.Name = "btnSchoolStdShow";
             this.btnSchoolStdShow.Size = new System.Drawing.Size(303, 90);
             this.btnSchoolStdShow.TabIndex = 26;
@@ -619,7 +608,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnMath);
             this.Controls.Add(this.MainExit);
             this.Controls.Add(this.Login_In);
             this.Controls.Add(this.menuStrip1);
@@ -647,7 +635,6 @@
 
         private System.Windows.Forms.Button Login_In;
         private System.Windows.Forms.Button MainExit;
-        private System.Windows.Forms.Button btnMath;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rdbMan;
         private System.Windows.Forms.RadioButton rdbWoman;

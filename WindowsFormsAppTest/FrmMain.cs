@@ -58,12 +58,6 @@ namespace WindowsFormsAppTest
             Application.Exit();
         }
 
-        private void BtnMath_Click(object sender, EventArgs e)
-        {
-            frmMath frm = new frmMath();
-            frm.Show();
-        }
-
         private void CmbSheng_SelectedIndexChanged(object sender, EventArgs e)
         {
             string strSheng = string.Empty;

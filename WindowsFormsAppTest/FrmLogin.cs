@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;//SQL数据库连接的头文件
 
 namespace WindowsFormsAppTest
 {
@@ -17,6 +18,8 @@ namespace WindowsFormsAppTest
         private Label label2;
         private TextBox textID;
         private TextBox textPWD;
+        private Button btnRegister;
+        private Button BtnForgetPWD;
         private Button Cancle;
 
         public FrmLogin()
@@ -33,6 +36,8 @@ namespace WindowsFormsAppTest
             this.label2 = new System.Windows.Forms.Label();
             this.textID = new System.Windows.Forms.TextBox();
             this.textPWD = new System.Windows.Forms.TextBox();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.BtnForgetPWD = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Login
@@ -50,7 +55,7 @@ namespace WindowsFormsAppTest
             // 
             this.Cancle.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancle.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Cancle.Location = new System.Drawing.Point(355, 236);
+            this.Cancle.Location = new System.Drawing.Point(631, 236);
             this.Cancle.Name = "Cancle";
             this.Cancle.Size = new System.Drawing.Size(173, 85);
             this.Cancle.TabIndex = 1;
@@ -62,7 +67,7 @@ namespace WindowsFormsAppTest
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(62, 62);
+            this.label1.Location = new System.Drawing.Point(176, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 37);
             this.label1.TabIndex = 2;
@@ -72,7 +77,7 @@ namespace WindowsFormsAppTest
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(83, 142);
+            this.label2.Location = new System.Drawing.Point(197, 146);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 37);
             this.label2.TabIndex = 3;
@@ -80,26 +85,49 @@ namespace WindowsFormsAppTest
             // 
             // textID
             // 
-            this.textID.Location = new System.Drawing.Point(280, 62);
+            this.textID.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textID.Location = new System.Drawing.Point(394, 66);
             this.textID.Name = "textID";
-            this.textID.Size = new System.Drawing.Size(278, 35);
+            this.textID.Size = new System.Drawing.Size(278, 50);
             this.textID.TabIndex = 4;
-            this.textID.TextChanged += new System.EventHandler(this.TextID_TextChanged_1);
             // 
             // textPWD
             // 
-            this.textPWD.Location = new System.Drawing.Point(280, 142);
+            this.textPWD.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textPWD.Location = new System.Drawing.Point(394, 146);
             this.textPWD.Name = "textPWD";
             this.textPWD.PasswordChar = '*';
-            this.textPWD.Size = new System.Drawing.Size(278, 35);
+            this.textPWD.Size = new System.Drawing.Size(278, 50);
             this.textPWD.TabIndex = 5;
-            this.textPWD.TextChanged += new System.EventHandler(this.TextPWD_TextChanged);
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnRegister.Location = new System.Drawing.Point(367, 236);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(210, 89);
+            this.btnRegister.TabIndex = 6;
+            this.btnRegister.Text = "注册";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // BtnForgetPWD
+            // 
+            this.BtnForgetPWD.Location = new System.Drawing.Point(727, 428);
+            this.BtnForgetPWD.Name = "BtnForgetPWD";
+            this.BtnForgetPWD.Size = new System.Drawing.Size(246, 57);
+            this.BtnForgetPWD.TabIndex = 7;
+            this.BtnForgetPWD.Text = "忘记密码";
+            this.BtnForgetPWD.UseVisualStyleBackColor = true;
+            this.BtnForgetPWD.Click += new System.EventHandler(this.BtnForgetPWD_Click);
             // 
             // FrmLogin
             // 
             this.AcceptButton = this.Login;
             this.CancelButton = this.Cancle;
-            this.ClientSize = new System.Drawing.Size(676, 417);
+            this.ClientSize = new System.Drawing.Size(1028, 497);
+            this.Controls.Add(this.BtnForgetPWD);
+            this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.textPWD);
             this.Controls.Add(this.textID);
             this.Controls.Add(this.label2);
@@ -113,39 +141,74 @@ namespace WindowsFormsAppTest
 
         }
 
-        private void TextID_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextPWD_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void Login_Click(object sender, EventArgs e)
         {
             string strID = string.Empty;
             string strPWD = string.Empty;
+            string strSQL = string.Empty;
+ //           int ret = 0;
 
             strID = textID.Text.Trim();
             strPWD = textPWD.Text.Trim();
 
-            if (strID.Equals("001")&&strPWD.Equals("456"))
+            strSQL = $"select  * from 用户数据表 " +
+                $"where 用户名='{strID}' " +
+                $"and 密码='{strPWD}'";
+
+            SqlConnection conn = new SqlConnection
             {
-                MessageBox.Show("登录成功","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                ConnectionString = @"Data Source = 徐络溟\SQLEXPRESS; Integrated Security = True"
+            };
+            conn.Open();
+            SqlCommand cmd = new SqlCommand
+            {
+                Connection = conn,
+                CommandText = strSQL
+            };
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            var count = dt.Rows.Count;
+            if (count == 1)
+            {
+                MessageBox.Show("登录成功!", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("不匹配", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("登录失败!", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            FormRegister frmRegister = new FormRegister();
+            frmRegister.Show();
         }
 
         private void Cancle_Click(object sender, EventArgs e)
         {
             textID.Text = string.Empty;
             textPWD.Text = string.Empty;
-            textID.Focus();
+            textPWD.Focus();
+        }
+
+        private void BtnForgetPWD_Click(object sender, EventArgs e)
+        {
+            if (textID.Text.Equals(string.Empty))
+            {
+                MessageBox.Show("请输入用户名", "提示",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+            FormForgetPWD frmForgetPwd = new FormForgetPWD();
+
+            frmForgetPwd.txtUserName.Text = textID.Text.Trim();
+
+            frmForgetPwd.Show();
         }
     }
 }

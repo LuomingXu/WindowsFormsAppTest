@@ -45,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormForgetPWD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormForgetPWD.Designer.cs">
+      <DependentUpon>FormForgetPWD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegister.Designer.cs">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormStdInfoInSchool.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,12 +72,6 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMath.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMath.Designer.cs">
-      <DependentUpon>frmMath.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmStuInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormForgetPWD.resx">
+      <DependentUpon>FormForgetPWD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegister.resx">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormStdInfoInSchool.resx">
       <DependentUpon>FormStdInfoInSchool.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,9 +94,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMath.resx">
-      <DependentUpon>frmMath.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStuInfo.resx">
       <DependentUpon>FrmStuInfo.cs</DependentUpon>
