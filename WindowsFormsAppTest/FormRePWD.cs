@@ -11,11 +11,16 @@ using System.Data.SqlClient;
 
 namespace WindowsFormsAppTest
 {
-    public partial class FormRegister : Form
+    public partial class FormRePWD : Form
     {
-        public FormRegister()
+        public FormRePWD()
         {
             InitializeComponent();
+        }
+
+        private void FormRePWD_Load(object sender, EventArgs e)
+        {
+            textPWD.Focus();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -36,9 +41,9 @@ namespace WindowsFormsAppTest
             strPWDQuestion = cmbPWDQueston.Text.Trim();
             strPWDAnswer = textPWDAnswer.Text.Trim();
 
-            if (strUserPWD.Equals(strUserPWDConfirm)!=true )
+            if (strUserPWD.Equals(strUserPWDConfirm) != true)
             {
-                MessageBox.Show("您输入的密码前后不一样!", "警告", 
+                MessageBox.Show("您输入的密码前后不一样!", "警告",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 textPWD.Text = string.Empty;
@@ -48,7 +53,7 @@ namespace WindowsFormsAppTest
                 return;
             }
 
-            if (strUserName.Equals(string.Empty)||strUserPWD.Equals(string.Empty)||strUserPWDConfirm.Equals(string.Empty)||strPWDQuestion.Equals(string.Empty)||strPWDAnswer.Equals(string.Empty))
+            if (strUserPWD.Equals(string.Empty) || strUserPWDConfirm.Equals(string.Empty) || strPWDQuestion.Equals(string.Empty) || strPWDAnswer.Equals(string.Empty))
             {
                 MessageBox.Show("您有选项没有输入!", "警告",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -56,8 +61,9 @@ namespace WindowsFormsAppTest
                 return;
             }
 
-            strSQL = $"insert into 用户数据表(用户名,密码,密码提示问题,问题答案)" +
-                $"values('{strUserName}','{strUserPWD}','{strPWDQuestion}','{strPWDAnswer}')";
+            strSQL = $"update 用户数据表 " +
+                $"set 密码='{strUserPWD}',密码提示问题='{strPWDQuestion}',问题答案='{strPWDAnswer}'" +
+                $"where 用户名='{strUserName}'";
 
             SqlConnection conn = new SqlConnection
             {
@@ -71,7 +77,7 @@ namespace WindowsFormsAppTest
                 CommandText = strSQL
             };
 
-            retDR = MessageBox.Show("您确定注册?", "询问",
+            retDR = MessageBox.Show("确定?", "询问",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (retDR == DialogResult.Yes)
@@ -82,24 +88,21 @@ namespace WindowsFormsAppTest
                     conn.Close();
                     if (ret > 0)
                     {
-                        MessageBox.Show("注册成功!", "提示",
+                        MessageBox.Show("忘记密码成功!", "提示",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         Close();
                     }
                     else
                     {
-                        MessageBox.Show("没有注册成功", "警告",
+                        MessageBox.Show("失败", "警告",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("已存在此账号!", "警告",
+                    MessageBox.Show("失败", "警告",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                    textID.Text = string.Empty;
-                    textID.Focus();
                 }
             }
             else
@@ -110,13 +113,12 @@ namespace WindowsFormsAppTest
 
         private void btnCancle_Click(object sender, EventArgs e)
         {
-            textID.Text = string.Empty;
             textPWD.Text = string.Empty;
             textPWDConfirm.Text = string.Empty;
             cmbPWDQueston.Text = string.Empty;
             textPWDAnswer.Text = string.Empty;
 
-            textID.Focus();
+            textPWD.Focus();
         }
     }
 }

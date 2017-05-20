@@ -49,7 +49,7 @@
             this.textPWD.Name = "textPWD";
             this.textPWD.PasswordChar = '*';
             this.textPWD.Size = new System.Drawing.Size(278, 50);
-            this.textPWD.TabIndex = 9;
+            this.textPWD.TabIndex = 2;
             // 
             // textID
             // 
@@ -57,7 +57,7 @@
             this.textID.Location = new System.Drawing.Point(350, 65);
             this.textID.Name = "textID";
             this.textID.Size = new System.Drawing.Size(278, 50);
-            this.textID.TabIndex = 8;
+            this.textID.TabIndex = 1;
             // 
             // label2
             // 
@@ -94,8 +94,9 @@
             this.textPWDConfirm.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textPWDConfirm.Location = new System.Drawing.Point(350, 224);
             this.textPWDConfirm.Name = "textPWDConfirm";
+            this.textPWDConfirm.PasswordChar = '*';
             this.textPWDConfirm.Size = new System.Drawing.Size(278, 50);
-            this.textPWDConfirm.TabIndex = 11;
+            this.textPWDConfirm.TabIndex = 3;
             // 
             // label4
             // 
@@ -113,10 +114,11 @@
             this.textPWDAnswer.Location = new System.Drawing.Point(350, 399);
             this.textPWDAnswer.Name = "textPWDAnswer";
             this.textPWDAnswer.Size = new System.Drawing.Size(278, 50);
-            this.textPWDAnswer.TabIndex = 13;
+            this.textPWDAnswer.TabIndex = 5;
             // 
             // cmbPWDQueston
             // 
+            this.cmbPWDQueston.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPWDQueston.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbPWDQueston.FormattingEnabled = true;
             this.cmbPWDQueston.Items.AddRange(new object[] {
@@ -126,7 +128,7 @@
             this.cmbPWDQueston.Location = new System.Drawing.Point(350, 316);
             this.cmbPWDQueston.Name = "cmbPWDQueston";
             this.cmbPWDQueston.Size = new System.Drawing.Size(278, 45);
-            this.cmbPWDQueston.TabIndex = 14;
+            this.cmbPWDQueston.TabIndex = 4;
             // 
             // label5
             // 
@@ -144,7 +146,7 @@
             this.btnRegister.Location = new System.Drawing.Point(97, 520);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(210, 89);
-            this.btnRegister.TabIndex = 16;
+            this.btnRegister.TabIndex = 6;
             this.btnRegister.Text = "注册";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -155,7 +157,7 @@
             this.btnCancle.Location = new System.Drawing.Point(437, 520);
             this.btnCancle.Name = "btnCancle";
             this.btnCancle.Size = new System.Drawing.Size(219, 99);
-            this.btnCancle.TabIndex = 17;
+            this.btnCancle.TabIndex = 7;
             this.btnCancle.Text = "取消";
             this.btnCancle.UseVisualStyleBackColor = true;
             this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);

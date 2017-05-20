@@ -517,7 +517,7 @@
             // btnDateShow
             // 
             this.btnDateShow.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDateShow.Location = new System.Drawing.Point(80, 384);
+            this.btnDateShow.Location = new System.Drawing.Point(80, 410);
             this.btnDateShow.Name = "btnDateShow";
             this.btnDateShow.Size = new System.Drawing.Size(271, 77);
             this.btnDateShow.TabIndex = 21;
@@ -527,7 +527,7 @@
             // 
             // dtpBirthday
             // 
-            this.dtpBirthday.Location = new System.Drawing.Point(80, 322);
+            this.dtpBirthday.Location = new System.Drawing.Point(80, 348);
             this.dtpBirthday.Name = "dtpBirthday";
             this.dtpBirthday.Size = new System.Drawing.Size(200, 35);
             this.dtpBirthday.TabIndex = 22;
@@ -576,7 +576,7 @@
             // btnSchoolStdShow
             // 
             this.btnSchoolStdShow.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSchoolStdShow.Location = new System.Drawing.Point(80, 540);
+            this.btnSchoolStdShow.Location = new System.Drawing.Point(80, 566);
             this.btnSchoolStdShow.Name = "btnSchoolStdShow";
             this.btnSchoolStdShow.Size = new System.Drawing.Size(303, 90);
             this.btnSchoolStdShow.TabIndex = 26;

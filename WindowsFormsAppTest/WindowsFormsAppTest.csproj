@@ -57,6 +57,12 @@
     <Compile Include="FormRegister.Designer.cs">
       <DependentUpon>FormRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRePWD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRePWD.Designer.cs">
+      <DependentUpon>FormRePWD.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormStdInfoInSchool.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegister.resx">
       <DependentUpon>FormRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRePWD.resx">
+      <DependentUpon>FormRePWD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStdInfoInSchool.resx">
       <DependentUpon>FormStdInfoInSchool.cs</DependentUpon>

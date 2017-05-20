@@ -46,7 +46,7 @@ namespace WindowsFormsAppTest
             this.Login.Location = new System.Drawing.Point(100, 236);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(179, 89);
-            this.Login.TabIndex = 0;
+            this.Login.TabIndex = 3;
             this.Login.Text = "登录";
             this.Login.UseVisualStyleBackColor = true;
             this.Login.Click += new System.EventHandler(this.Login_Click);
@@ -58,7 +58,7 @@ namespace WindowsFormsAppTest
             this.Cancle.Location = new System.Drawing.Point(631, 236);
             this.Cancle.Name = "Cancle";
             this.Cancle.Size = new System.Drawing.Size(173, 85);
-            this.Cancle.TabIndex = 1;
+            this.Cancle.TabIndex = 5;
             this.Cancle.Text = "取消";
             this.Cancle.UseVisualStyleBackColor = true;
             this.Cancle.Click += new System.EventHandler(this.Cancle_Click);
@@ -89,7 +89,7 @@ namespace WindowsFormsAppTest
             this.textID.Location = new System.Drawing.Point(394, 66);
             this.textID.Name = "textID";
             this.textID.Size = new System.Drawing.Size(278, 50);
-            this.textID.TabIndex = 4;
+            this.textID.TabIndex = 1;
             // 
             // textPWD
             // 
@@ -98,7 +98,7 @@ namespace WindowsFormsAppTest
             this.textPWD.Name = "textPWD";
             this.textPWD.PasswordChar = '*';
             this.textPWD.Size = new System.Drawing.Size(278, 50);
-            this.textPWD.TabIndex = 5;
+            this.textPWD.TabIndex = 2;
             // 
             // btnRegister
             // 
@@ -106,7 +106,7 @@ namespace WindowsFormsAppTest
             this.btnRegister.Location = new System.Drawing.Point(367, 236);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(210, 89);
-            this.btnRegister.TabIndex = 6;
+            this.btnRegister.TabIndex = 4;
             this.btnRegister.Text = "注册";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -116,7 +116,7 @@ namespace WindowsFormsAppTest
             this.BtnForgetPWD.Location = new System.Drawing.Point(727, 428);
             this.BtnForgetPWD.Name = "BtnForgetPWD";
             this.BtnForgetPWD.Size = new System.Drawing.Size(246, 57);
-            this.BtnForgetPWD.TabIndex = 7;
+            this.BtnForgetPWD.TabIndex = 6;
             this.BtnForgetPWD.Text = "忘记密码";
             this.BtnForgetPWD.UseVisualStyleBackColor = true;
             this.BtnForgetPWD.Click += new System.EventHandler(this.BtnForgetPWD_Click);
@@ -173,12 +173,17 @@ namespace WindowsFormsAppTest
             if (count == 1)
             {
                 MessageBox.Show("登录成功!", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Close();
             }
             else
             {
-                MessageBox.Show("登录失败!", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("登录失败!\n请重新登录", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                textPWD.Text = string.Empty;
+                textPWD.Focus();
             }
-        }
+      }
 
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -189,17 +194,27 @@ namespace WindowsFormsAppTest
 
         private void Cancle_Click(object sender, EventArgs e)
         {
-            textID.Text = string.Empty;
             textPWD.Text = string.Empty;
             textPWD.Focus();
         }
 
         private void BtnForgetPWD_Click(object sender, EventArgs e)
         {
+            DialogResult ret;
+
             if (textID.Text.Equals(string.Empty))
             {
-                MessageBox.Show("请输入用户名", "提示",
+                MessageBox.Show("请输入用户名\n或者您未注册!", "提示",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ret = MessageBox.Show("您要注册吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (ret.Equals(DialogResult.Yes))
+                {
+                    FormRegister frmRegister = new FormRegister();
+                    frmRegister.Show();
+
+                    Close();
+                }
 
                 return;
             }
@@ -209,6 +224,11 @@ namespace WindowsFormsAppTest
             frmForgetPwd.txtUserName.Text = textID.Text.Trim();
 
             frmForgetPwd.Show();
+
+            Close();
+
+            MessageBox.Show("请输入密码提示问题的答案", "提示",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

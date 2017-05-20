@@ -51,7 +51,6 @@ namespace WindowsFormsAppTest
             strPWDQuestion = Convert.ToString(cmd.ExecuteScalar());
 
             txtPWDQuestion.Text = strPWDQuestion;
-
         }
 
         private void BtnOK_Click(object sender, EventArgs e)
@@ -92,12 +91,31 @@ namespace WindowsFormsAppTest
             var count = dt.Rows.Count;
             if (count == 1)
             {
-                MessageBox.Show("请重新注册!", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("忘记密码成功!\n请重新注册!", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                FormRePWD frmRePWD = new FormRePWD();
+                
+                //传递用户名
+                frmRePWD.textID.Text = txtUserName.Text.Trim();
+
+                frmRePWD.Show();
+
+                Close();
+                //提示用户要干什么
+                MessageBox.Show("请输入新的密码!", "提示",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 MessageBox.Show("忘记密码失败!", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            txtPWDAnswer.Text = string.Empty;
+
+            txtPWDQuestion.Focus();
         }
     }
 }
