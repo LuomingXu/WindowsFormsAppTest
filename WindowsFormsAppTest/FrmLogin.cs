@@ -147,7 +147,8 @@ namespace WindowsFormsAppTest
             string strID = string.Empty;
             string strPWD = string.Empty;
             string strSQL = string.Empty;
- //           int ret = 0;
+
+            FrmStuInfo frmStuInfo = new FrmStuInfo();
 
             strID = textID.Text.Trim();
             strPWD = textPWD.Text.Trim();
@@ -156,24 +157,47 @@ namespace WindowsFormsAppTest
                 $"where 用户名='{strID}' " +
                 $"and 密码='{strPWD}'";
 
-            SqlConnection conn = new SqlConnection
+            SqlConnection conn = new SqlConnection//链接数据库
             {
                 ConnectionString = @"Data Source = 徐络溟\SQLEXPRESS; Integrated Security = True"
             };
+
             conn.Open();
-            SqlCommand cmd = new SqlCommand
+
+            SqlCommand cmd = new SqlCommand//SQL语句的执行,存储,调用
             {
                 Connection = conn,
                 CommandText = strSQL
             };
+
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
             var count = dt.Rows.Count;
+
             if (count == 1)
             {
                 MessageBox.Show("登录成功!", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cmd.CommandText = $"select * from 学生信息表 where 学号='{strID}'";
+                SqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
 
+                frmStuInfo.txbNumber.Text = Convert.ToString(reader[0]);
+                frmStuInfo.txtName.Text = Convert.ToString(reader[1]);
+                frmStuInfo.txbClass.Text = Convert.ToString(reader[2]);
+                if (Convert.ToString(reader[3]).Equals("男"))
+                {
+                    frmStuInfo.rdbMale.Checked = true;
+                }
+                else
+                {
+                    frmStuInfo.rdbFemale.Checked = true;
+                }
+                frmStuInfo.cmbSheng.Text = Convert.ToString(reader[4]);
+
+                frmStuInfo.Show();
+
+                conn.Close();
                 Close();
             }
             else

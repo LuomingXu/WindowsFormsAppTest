@@ -343,10 +343,10 @@
         private System.Windows.Forms.TabPage tpHoppies;
         private System.Windows.Forms.TabPage tpExperience;
         private System.Windows.Forms.TabPage tpSchool;
-        private System.Windows.Forms.RadioButton rdbFemale;
-        private System.Windows.Forms.RadioButton rdbMale;
+        public System.Windows.Forms.RadioButton rdbFemale;
+        public System.Windows.Forms.RadioButton rdbMale;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtName;
+        public System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSearchByNumber;
         private System.Windows.Forms.Button btnDelete;

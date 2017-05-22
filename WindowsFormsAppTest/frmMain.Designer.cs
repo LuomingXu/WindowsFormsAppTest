@@ -89,6 +89,7 @@
             this.lbPgLa2 = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSchoolStdShow = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -584,12 +585,24 @@
             this.btnSchoolStdShow.UseVisualStyleBackColor = true;
             this.btnSchoolStdShow.Click += new System.EventHandler(this.btnSchoolStdShow_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(1221, 800);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(327, 66);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "测试按钮,请忽略";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1576, 905);
             this.ContextMenuStrip = this.cmsFromMain;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSchoolStdShow);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dtpBirthday);
@@ -693,6 +706,7 @@
         private System.Windows.Forms.ToolStripMenuItem 删除第一行ToolStripMenuItem;
         private System.Windows.Forms.Button btnSchoolStdShow;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

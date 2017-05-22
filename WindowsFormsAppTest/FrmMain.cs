@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace WindowsFormsAppTest
 {
@@ -187,6 +188,23 @@ namespace WindowsFormsAppTest
         {
             FormStdInfoInSchool frmstdInfo = new FormStdInfoInSchool();
             frmstdInfo.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection()
+            {
+                ConnectionString = @"Data Source=徐络溟\SQLEXPRESS;Integrated Security=True"
+            };
+            SqlCommand cmd = new SqlCommand()
+            {
+                Connection = conn,
+                CommandText = $"select * from 学生信息表 where 学号='001'"
+            };
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            MessageBox.Show(Convert.ToString( reader[0]), "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
