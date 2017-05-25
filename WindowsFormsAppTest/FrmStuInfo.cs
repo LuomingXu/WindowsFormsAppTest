@@ -20,26 +20,97 @@ namespace WindowsFormsAppTest
 
         private void CmbSheng_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string strSheng = string.Empty;
-            strSheng = cmbSheng.Text;
+            string strShengID = string.Empty;
+            string[] strPvovinceID1 = cmbSheng.Text.Split(':');
+            string strProvinceID = strPvovinceID1[0];
+            
+            string strSQL = string.Empty;
+            int intRecordCount = 0;
 
             cmbShi.Items.Clear();
             cmbShi.Text = string.Empty;
+            cmbQu.Items.Clear();
+            cmbQu.Text = string.Empty;
 
-            if (strSheng.Equals("江苏"))
+            strSQL = $"select CityID,CityName from S_City where ProvinceID='{strProvinceID}'";
+
+            SqlConnection conn = new SqlConnection()
             {
-                cmbShi.Items.Add("南京");
-                cmbShi.Items.Add("常州");
+                ConnectionString = @"Data Source=徐络溟\SQLEXPRESS;Integrated Security=True"
+            };
+
+            SqlCommand cmd = new SqlCommand()
+            {
+                Connection = conn,
+                CommandText = strSQL,
+            };
+
+            SqlDataAdapter da = new SqlDataAdapter()
+            {
+                SelectCommand = cmd
+            };
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds, "市表");
+
+            intRecordCount = ds.Tables["市表"].DefaultView.Count;
+
+            if (intRecordCount > 0)
+            {
+                for (int i = 0; i < intRecordCount; i++)
+                {
+                    cmbShi.Items.Add(ds.Tables["市表"].Rows[i][0].ToString() +
+                        ": " +
+                        ds.Tables["市表"].Rows[i][1]).ToString();
+                }
             }
-            if (strSheng.Equals("上海"))
+        }
+
+        private void cmbShi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string strQuID = string.Empty;
+            string[] strCityID1 = cmbShi.Text.Split(':');
+            string strCityID = strCityID1[0];
+
+            string strSQL = string.Empty;
+            int intRecordCount = 0;
+
+            cmbQu.Items.Clear();
+            cmbQu.Text = string.Empty;
+
+            strSQL = $"select DistrictID,DistrictName from S_District where CityID='{strCityID}'";
+
+            SqlConnection conn = new SqlConnection()
             {
-                cmbShi.Items.Add("浦东");
-                cmbShi.Items.Add("浦西");
-            }
-            if (strSheng.Equals("浙江"))
+                ConnectionString = @"Data Source=徐络溟\SQLEXPRESS;Integrated Security=True"
+            };
+
+            SqlCommand cmd = new SqlCommand()
             {
-                cmbShi.Items.Add("杭州");
-                cmbShi.Items.Add("宁波");
+                Connection = conn,
+                CommandText = strSQL,
+            };
+
+            SqlDataAdapter da = new SqlDataAdapter()
+            {
+                SelectCommand = cmd
+            };
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds, "区表");
+
+            intRecordCount = ds.Tables["区表"].DefaultView.Count;
+
+            if (intRecordCount > 0)
+            {
+                for (int i = 0; i < intRecordCount; i++)
+                {
+                    cmbQu.Items.Add(ds.Tables["区表"].Rows[i][0].ToString() +
+                        ": " +
+                        ds.Tables["区表"].Rows[i][1]).ToString();
+                }
             }
         }
 
@@ -48,9 +119,52 @@ namespace WindowsFormsAppTest
             cmbSheng.Items.Clear();
             //cmbSheng.Text = string.Empty;
 
-            cmbSheng.Items.Add("江苏");
-            cmbSheng.Items.Add("上海");
-            cmbSheng.Items.Add("浙江");
+            string strSQL = string.Empty;
+            int intRecordCount = 0;
+
+            strSQL = $"select ProvinceID,ProvinceName from S_Province";
+
+            SqlConnection conn = new SqlConnection()
+            {
+                ConnectionString = @"Data Source=徐络溟\SQLEXPRESS;Integrated Security=True"
+            };
+
+            SqlCommand cmd = new SqlCommand()
+            {
+                Connection = conn,
+                CommandText = strSQL,
+            };
+
+            SqlDataAdapter da = new SqlDataAdapter()
+            {
+                SelectCommand = cmd
+            };
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds, "省表");
+
+            intRecordCount = ds.Tables["省表"].DefaultView.Count;
+
+            conn.Close();
+
+            if (intRecordCount > 0)
+            {
+                //MessageBox.Show("成功查询", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                for (int i = 0; i < intRecordCount; i++)
+                {
+                    cmbSheng.Items.Add(ds.Tables["省表"].Rows[i][0].ToString() +
+                        ": " +
+                        ds.Tables["省表"].Rows[i][1].ToString());
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("不存在此学号", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -82,7 +196,10 @@ namespace WindowsFormsAppTest
             {
                 strGender = "女";
             }
-            strAddress = cmbSheng.Text.Trim() + cmbShi.Text.Trim();
+            string[] strText1 = cmbSheng.Text.Split(':');
+            string[] strText2 = cmbShi.Text.Split(':');
+            string[] strText3 = cmbQu.Text.Split(':');
+            strAddress = strText1[0] + strText2[0] + strText3[0];
 
             strSQLStu = $"insert into 学生信息表(学号,姓名,班级,性别,生源地) " +
                 $"values('{strNumber}','{strName}', '{strClass}','{strGender}','{strAddress}')";
@@ -329,5 +446,7 @@ namespace WindowsFormsAppTest
 
             txbNumber.Focus();
         }
+
+
     }
 }

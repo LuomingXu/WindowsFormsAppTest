@@ -86,7 +86,7 @@ namespace WindowsFormsAppTest
 
         private void BtnInput_Click(object sender, EventArgs e)
         {
-            DialogResult ret;
+           // DialogResult ret;
             string strNumber = string.Empty;
             string strClass = string.Empty;
 
