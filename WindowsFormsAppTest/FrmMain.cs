@@ -94,21 +94,23 @@ namespace WindowsFormsAppTest
             frmStu.txbClass.Text = txbClass.Text;
             frmStu.txbNumber.Text = txbNumber.Text;
 
+            frmStu.Show();
 
-            ret = frmStu.ShowDialog();
-            if (ret == DialogResult.OK)
-            {
-                txbClass.Text = frmStu.txbClass.Text;
-                txbNumber.Text = frmStu.txbNumber.Text;
-                cmbSheng.Text = frmStu.cmbSheng.Text;
-                cmbShi.Text = frmStu.cmbShi.Text;
-            }
-            else if(ret==DialogResult.Cancel)
-            {
-                frmStu.txbNumber.Text = string.Empty;
-                frmStu.txbClass.Text = string.Empty;
-                frmStu.txbNumber.Focus();
-            }
+            //在窗体见传递数据的参考代码
+            //ret = frmStu.ShowDialog();
+            //if (ret == DialogResult.OK)
+            //{
+            //    txbClass.Text = frmStu.txbClass.Text;
+            //    txbNumber.Text = frmStu.txbNumber.Text;
+            //    cmbSheng.Text = frmStu.cmbSheng.Text;
+            //    cmbShi.Text = frmStu.cmbShi.Text;
+            //}
+            //else if(ret==DialogResult.Cancel)
+            //{
+            //    frmStu.txbNumber.Text = string.Empty;
+            //    frmStu.txbClass.Text = string.Empty;
+            //    frmStu.txbNumber.Focus();
+            //}
         }
 
         /// <summary>
