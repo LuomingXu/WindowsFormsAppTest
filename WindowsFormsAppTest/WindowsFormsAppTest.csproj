@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassEmail.cs" />
     <Compile Include="FormForgetPWD.cs">
       <SubType>Form</SubType>
     </Compile>

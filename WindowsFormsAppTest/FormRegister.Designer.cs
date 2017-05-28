@@ -40,6 +40,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnCancle = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtMailAddress = new System.Windows.Forms.TextBox();
+            this.txtMailVerticationCode = new System.Windows.Forms.TextBox();
+            this.BtnSendMail = new System.Windows.Forms.Button();
+            this.cmbMailStmp = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textPWD
@@ -102,7 +109,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(80, 312);
+            this.label4.Location = new System.Drawing.Point(91, 594);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(239, 37);
             this.label4.TabIndex = 12;
@@ -111,10 +118,10 @@
             // textPWDAnswer
             // 
             this.textPWDAnswer.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textPWDAnswer.Location = new System.Drawing.Point(350, 399);
+            this.textPWDAnswer.Location = new System.Drawing.Point(351, 681);
             this.textPWDAnswer.Name = "textPWDAnswer";
             this.textPWDAnswer.Size = new System.Drawing.Size(278, 50);
-            this.textPWDAnswer.TabIndex = 5;
+            this.textPWDAnswer.TabIndex = 8;
             // 
             // cmbPWDQueston
             // 
@@ -125,16 +132,16 @@
             "父母的姓名",
             "喜欢的人",
             "寝室号"});
-            this.cmbPWDQueston.Location = new System.Drawing.Point(350, 316);
+            this.cmbPWDQueston.Location = new System.Drawing.Point(351, 594);
             this.cmbPWDQueston.Name = "cmbPWDQueston";
             this.cmbPWDQueston.Size = new System.Drawing.Size(278, 45);
-            this.cmbPWDQueston.TabIndex = 4;
+            this.cmbPWDQueston.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(123, 402);
+            this.label5.Location = new System.Drawing.Point(134, 684);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(165, 37);
             this.label5.TabIndex = 15;
@@ -143,7 +150,7 @@
             // btnRegister
             // 
             this.btnRegister.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnRegister.Location = new System.Drawing.Point(97, 520);
+            this.btnRegister.Location = new System.Drawing.Point(97, 810);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(210, 89);
             this.btnRegister.TabIndex = 6;
@@ -153,8 +160,9 @@
             // 
             // btnCancle
             // 
+            this.btnCancle.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancle.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCancle.Location = new System.Drawing.Point(437, 520);
+            this.btnCancle.Location = new System.Drawing.Point(435, 805);
             this.btnCancle.Name = "btnCancle";
             this.btnCancle.Size = new System.Drawing.Size(219, 99);
             this.btnCancle.TabIndex = 7;
@@ -162,11 +170,94 @@
             this.btnCancle.UseVisualStyleBackColor = true;
             this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(123, 327);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 37);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "邮箱";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(143, 508);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(128, 37);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "验证码";
+            // 
+            // txtMailAddress
+            // 
+            this.txtMailAddress.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtMailAddress.Location = new System.Drawing.Point(270, 324);
+            this.txtMailAddress.Name = "txtMailAddress";
+            this.txtMailAddress.Size = new System.Drawing.Size(279, 50);
+            this.txtMailAddress.TabIndex = 4;
+            // 
+            // txtMailVerticationCode
+            // 
+            this.txtMailVerticationCode.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtMailVerticationCode.Location = new System.Drawing.Point(350, 508);
+            this.txtMailVerticationCode.Name = "txtMailVerticationCode";
+            this.txtMailVerticationCode.Size = new System.Drawing.Size(279, 50);
+            this.txtMailVerticationCode.TabIndex = 6;
+            // 
+            // BtnSendMail
+            // 
+            this.BtnSendMail.BackColor = System.Drawing.Color.Gainsboro;
+            this.BtnSendMail.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BtnSendMail.ForeColor = System.Drawing.Color.Red;
+            this.BtnSendMail.Location = new System.Drawing.Point(196, 404);
+            this.BtnSendMail.Name = "BtnSendMail";
+            this.BtnSendMail.Size = new System.Drawing.Size(400, 68);
+            this.BtnSendMail.TabIndex = 5;
+            this.BtnSendMail.Text = "发送验证邮件";
+            this.BtnSendMail.UseVisualStyleBackColor = false;
+            this.BtnSendMail.Click += new System.EventHandler(this.BtnSendMail_Click);
+            // 
+            // cmbMailStmp
+            // 
+            this.cmbMailStmp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMailStmp.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cmbMailStmp.FormattingEnabled = true;
+            this.cmbMailStmp.Items.AddRange(new object[] {
+            "163.com",
+            "qq.com",
+            "gmail.com",
+            "126.com"});
+            this.cmbMailStmp.Location = new System.Drawing.Point(580, 324);
+            this.cmbMailStmp.Name = "cmbMailStmp";
+            this.cmbMailStmp.Size = new System.Drawing.Size(165, 45);
+            this.cmbMailStmp.TabIndex = 18;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(576, 287);
+            this.label8.Name = "label8";
+            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label8.Size = new System.Drawing.Size(178, 24);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "请选择邮箱域名";
+            // 
             // FormRegister
             // 
+            this.AcceptButton = this.btnRegister;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(760, 669);
+            this.CancelButton = this.btnCancle;
+            this.ClientSize = new System.Drawing.Size(902, 943);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cmbMailStmp);
+            this.Controls.Add(this.BtnSendMail);
+            this.Controls.Add(this.txtMailVerticationCode);
+            this.Controls.Add(this.txtMailAddress);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCancle);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.label5);
@@ -188,6 +279,11 @@
 
         #endregion
 
+        /// <summary>
+        /// 此Form全局的VttCode
+        /// </summary>
+        private string strVttCode = string.Empty;
+
         private System.Windows.Forms.TextBox textPWD;
         private System.Windows.Forms.TextBox textID;
         private System.Windows.Forms.Label label2;
@@ -200,5 +296,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnCancle;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtMailAddress;
+        private System.Windows.Forms.TextBox txtMailVerticationCode;
+        private System.Windows.Forms.Button BtnSendMail;
+        private System.Windows.Forms.ComboBox cmbMailStmp;
+        private System.Windows.Forms.Label label8;
     }
 }
