@@ -51,6 +51,12 @@
     <Compile Include="FormForgetPWD.Designer.cs">
       <DependentUpon>FormForgetPWD.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormForgetPWDByMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormForgetPWDByMail.Designer.cs">
+      <DependentUpon>FormForgetPWDByMail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormForgetPWD.resx">
       <DependentUpon>FormForgetPWD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormForgetPWDByMail.resx">
+      <DependentUpon>FormForgetPWDByMail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegister.resx">
       <DependentUpon>FormRegister.cs</DependentUpon>

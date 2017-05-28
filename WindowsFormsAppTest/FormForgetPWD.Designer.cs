@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormForgetPWD));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -98,11 +99,11 @@
             // BtnOK
             // 
             this.BtnOK.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnOK.Location = new System.Drawing.Point(124, 428);
+            this.BtnOK.Location = new System.Drawing.Point(102, 426);
             this.BtnOK.Name = "BtnOK";
-            this.BtnOK.Size = new System.Drawing.Size(233, 71);
+            this.BtnOK.Size = new System.Drawing.Size(305, 73);
             this.BtnOK.TabIndex = 6;
-            this.BtnOK.Text = "确定";
+            this.BtnOK.Text = "发送验证邮件";
             this.BtnOK.UseVisualStyleBackColor = true;
             this.BtnOK.Click += new System.EventHandler(this.BtnOK_Click);
             // 
@@ -124,7 +125,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnCancel;
-            this.ClientSize = new System.Drawing.Size(956, 585);
+            this.ClientSize = new System.Drawing.Size(956, 583);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnOK);
             this.Controls.Add(this.txtPWDQuestion);
@@ -133,6 +134,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormForgetPWD";
             this.Text = "FormForgetPWD";
             this.Load += new System.EventHandler(this.FormForgetPWD_Load);

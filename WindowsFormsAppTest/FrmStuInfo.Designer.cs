@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStuInfo));
             this.txbClass = new System.Windows.Forms.TextBox();
             this.txbNumber = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -41,6 +42,8 @@
             this.cmbShi = new System.Windows.Forms.ComboBox();
             this.cmbSheng = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbQu = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.rdbFemale = new System.Windows.Forms.RadioButton();
@@ -62,8 +65,6 @@
             this.txtCourseNumber = new System.Windows.Forms.TextBox();
             this.txtCourseName = new System.Windows.Forms.TextBox();
             this.txtGrade = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cmbQu = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -202,6 +203,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(822, 408);
             this.panel1.TabIndex = 26;
+            // 
+            // cmbQu
+            // 
+            this.cmbQu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbQu.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cmbQu.FormattingEnabled = true;
+            this.cmbQu.Location = new System.Drawing.Point(121, 347);
+            this.cmbQu.Name = "cmbQu";
+            this.cmbQu.Size = new System.Drawing.Size(241, 45);
+            this.cmbQu.TabIndex = 31;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label11.Location = new System.Drawing.Point(381, 347);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(166, 37);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "区/县/市";
             // 
             // txtName
             // 
@@ -403,26 +424,6 @@
             this.txtGrade.Size = new System.Drawing.Size(206, 35);
             this.txtGrade.TabIndex = 10;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.Location = new System.Drawing.Point(381, 347);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(166, 37);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "区/县/市";
-            // 
-            // cmbQu
-            // 
-            this.cmbQu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbQu.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cmbQu.FormattingEnabled = true;
-            this.cmbQu.Location = new System.Drawing.Point(121, 347);
-            this.cmbQu.Name = "cmbQu";
-            this.cmbQu.Size = new System.Drawing.Size(241, 45);
-            this.cmbQu.TabIndex = 31;
-            // 
             // FrmStuInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -443,6 +444,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmStuInfo";
             this.Text = "FrmStuInfo";
             this.Load += new System.EventHandler(this.FrmStuInfo_Load);

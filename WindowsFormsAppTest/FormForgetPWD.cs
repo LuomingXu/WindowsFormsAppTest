@@ -49,7 +49,7 @@ namespace WindowsFormsAppTest
 
             //从数据库中读取数据
             strPWDQuestion = Convert.ToString(cmd.ExecuteScalar());
-
+            conn.Close();
             txtPWDQuestion.Text = strPWDQuestion;
         }
 
@@ -115,7 +115,7 @@ namespace WindowsFormsAppTest
         {
             txtPWDAnswer.Text = string.Empty;
 
-            txtPWDQuestion.Focus();
+            txtPWDAnswer.Focus();
         }
     }
 }

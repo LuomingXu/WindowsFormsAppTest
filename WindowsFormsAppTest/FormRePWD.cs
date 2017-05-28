@@ -28,6 +28,7 @@ namespace WindowsFormsAppTest
             string strUserName = string.Empty;
             string strUserPWD = string.Empty;
             string strUserPWDConfirm = string.Empty;
+            string strMailAddress = string.Empty;
             string strPWDQuestion = string.Empty;
             string strPWDAnswer = string.Empty;
 
@@ -38,6 +39,7 @@ namespace WindowsFormsAppTest
             strUserName = textID.Text.Trim();
             strUserPWD = textPWD.Text.Trim();
             strUserPWDConfirm = textPWDConfirm.Text.Trim();
+            strMailAddress = TxtMailAddress.Text.Trim();
             strPWDQuestion = cmbPWDQueston.Text.Trim();
             strPWDAnswer = textPWDAnswer.Text.Trim();
 
@@ -62,7 +64,7 @@ namespace WindowsFormsAppTest
             }
 
             strSQL = $"update 用户数据表 " +
-                $"set 密码='{strUserPWD}',密码提示问题='{strPWDQuestion}',问题答案='{strPWDAnswer}'" +
+                $"set 密码='{strUserPWD}',邮箱='{strMailAddress}',密码提示问题='{strPWDQuestion}',问题答案='{strPWDAnswer}'" +
                 $"where 用户名='{strUserName}'";
 
             SqlConnection conn = new SqlConnection
@@ -99,9 +101,9 @@ namespace WindowsFormsAppTest
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("失败", "警告",
+                    MessageBox.Show(ex.Message, "警告",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }

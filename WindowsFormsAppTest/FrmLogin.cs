@@ -30,6 +30,7 @@ namespace WindowsFormsAppTest
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.Login = new System.Windows.Forms.Button();
             this.Cancle = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -134,6 +135,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Cancle);
             this.Controls.Add(this.Login);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLogin";
             this.Text = "FrmLogin";
             this.ResumeLayout(false);
@@ -231,7 +233,9 @@ namespace WindowsFormsAppTest
                 MessageBox.Show("请输入用户名\n或者您未注册!", "提示",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                ret = MessageBox.Show("您要注册吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                ret = MessageBox.Show("您要注册吗?", "提示", 
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
                 if (ret.Equals(DialogResult.Yes))
                 {
                     FormRegister frmRegister = new FormRegister();
@@ -243,16 +247,46 @@ namespace WindowsFormsAppTest
                 return;
             }
 
-            FormForgetPWD frmForgetPwd = new FormForgetPWD();
+            ret = MessageBox.Show("您是否还记得密码提示问题", "询问", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
-            frmForgetPwd.txtUserName.Text = textID.Text.Trim();
+            if (ret.Equals(DialogResult.Yes))
+            {
+                FormForgetPWD frmForgetPwd = new FormForgetPWD();
 
-            frmForgetPwd.Show();
+                frmForgetPwd.txtUserName.Text = textID.Text.Trim();
 
-            Close();
+                frmForgetPwd.Show();
 
-            MessageBox.Show("请输入密码提示问题的答案", "提示",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+
+                MessageBox.Show("请输入密码提示问题的答案", "提示",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            else
+            {
+                ret = MessageBox.Show("确定通过邮箱验证身份吗?", "提示", 
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (ret.Equals(DialogResult.Yes))
+                {
+                    FormForgetPWDByMail frmForgetPwd = new FormForgetPWDByMail();
+
+                    frmForgetPwd.TxtUserName.Text = textID.Text.Trim();
+
+                    frmForgetPwd.Show();
+
+                    Close();
+                }
+                else
+                {
+                   
+                }
+
+            }
+            
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.Login_In = new System.Windows.Forms.Button();
             this.MainExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -624,6 +625,7 @@
             this.Controls.Add(this.MainExit);
             this.Controls.Add(this.Login_In);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMain";
             this.Text = "frmMain";
