@@ -23,6 +23,60 @@ namespace WindowsFormsAppTest
             InitializeComponent();
         }
 
+        private void FormRegister_Load(object sender, EventArgs e)
+        {
+            //在开始时获得MailDomain
+            GetMailDomain();
+        }
+
+        /// <summary>
+        /// 从数据库中获取所有的MailDomain
+        /// </summary>
+        private void GetMailDomain()
+        {
+
+            string strSQLGetDomain = string.Empty;
+            string strSQLUpdateHotIndex = string.Empty;
+            strSQLGetDomain = $"select * from MailAddress order by HotIndex desc";
+
+            SqlConnection conn = new SqlConnection()
+            {
+                ConnectionString = @"Data Source=182.254.223.162;Persist Security Info=True;User ID=sa;Password=113210xlm~!",
+            };
+
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand()
+            {
+                Connection = conn,
+                CommandText = strSQLGetDomain,
+            };
+
+            SqlDataAdapter da = new SqlDataAdapter()
+            {
+                SelectCommand = cmd,
+            };
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "MailAddress");
+
+            conn.Close();
+
+            PrivateIntReaderCount = ds.Tables["MailAddress"].DefaultView.Count;
+
+            try
+            {
+                for (int i = 0; i < PrivateIntReaderCount; i++)
+                {
+                    str_MailDomain[i] = Convert.ToString(ds.Tables["MailAddress"].Rows[i][0]);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
             string strUserName = string.Empty;
@@ -38,7 +92,7 @@ namespace WindowsFormsAppTest
             
             strUserName = textID.Text.Trim();
             strUserPWD = textPWD.Text.Trim();
-            strMailAddress = txtMailAddress.Text.Trim() + "@" + cmbMailStmp.Text;
+            strMailAddress = txtMailAddress.Text.Trim();
             strUserPWDConfirm = textPWDConfirm.Text.Trim();
             strPWDQuestion = cmbPWDQueston.Text.Trim();
             strPWDAnswer = textPWDAnswer.Text.Trim();
@@ -63,13 +117,6 @@ namespace WindowsFormsAppTest
                 return;
             }
 
-            if (cmbMailStmp.Text.Equals(string.Empty))
-            {
-                MessageBox.Show("邮箱域名没有输入", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                return;
-            }
-
             if (txtMailVerticationCode.Text.Trim().Equals(strVttCode) == false)
             {
                 MessageBox.Show("验证码不正确!", "警告",
@@ -83,7 +130,7 @@ namespace WindowsFormsAppTest
 
             SqlConnection conn = new SqlConnection
             {
-                ConnectionString = @"Data Source = 徐络溟\SQLEXPRESS; Integrated Security = True"
+                ConnectionString = @"Data Source=182.254.223.162;Persist Security Info=True;User ID=sa;Password=113210xlm~!"
             };
             conn.Open();
 
@@ -120,7 +167,7 @@ namespace WindowsFormsAppTest
             }
             else
             {
-
+                //用户选择了不注册, 就什么都不干
             }
         }
 
@@ -141,12 +188,12 @@ namespace WindowsFormsAppTest
             Random RdNumber = new Random();
             int i = RdNumber.Next();
             i %= 1000000;
+            //保存在全Form变量中, 以便验证校对
             strVttCode = i.ToString();
 
             //获取需要发送的邮箱
             string strMailTo = string.Empty;
-            string[] strTemp = txtMailAddress.Text.Trim().Split('@');
-            strMailTo = strTemp[0].ToString() + "@" + cmbMailStmp.Text.Trim();
+            strMailTo = txtMailAddress.Text.Trim();
 
             try
             {
@@ -196,6 +243,79 @@ namespace WindowsFormsAppTest
             {
                 MessageBox.Show(ex.Message, "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void txtMailAddress_TextChanged(object sender, EventArgs e)
+        {
+            lstMailAddress.Items.Clear();
+
+            //在用户没有输入或者删除了输入时使listbox不可见
+            if (txtMailAddress.Text.Trim().Equals(string.Empty) != true)
+            {
+                lstMailAddress.Visible = true;
+            }
+            else
+            {
+                lstMailAddress.Visible = false;
+            }
+
+            for (int i = 0; i < PrivateIntReaderCount; i++)
+            {
+                lstMailAddress.Items.Add(txtMailAddress.Text.Trim() + str_MailDomain[i]);
+            }
+        }
+
+        /// <summary>
+        /// 当用户按下BackSpace时, 直接将用户的输入剪切去@后面的东西, 并将光标定位到最后
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtMailAddress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string[] strTemp = txtMailAddress.Text.Trim().Split('@');
+
+            if (e.KeyChar == '\b')
+            {
+                txtMailAddress.Text = strTemp[0];
+                //光标定位到最后
+                txtMailAddress.Select(txtMailAddress.Text.Length, 1);
+            }
+        }
+
+        private void lstMailAddress_MouseMove(object sender, MouseEventArgs e)
+        {
+            ListBox eObj = sender as ListBox;
+            eObj.SelectedIndex = eObj.IndexFromPoint(e.Location);
+        }
+
+        private void lstMailAddress_Click(object sender, EventArgs e)
+        {
+            txtMailAddress.Text = lstMailAddress.SelectedItem.ToString();
+            lstMailAddress.Visible = false;
+            lstMailAddress.Items.Clear();
+
+            //当用户点击了之后将HotIndex增加, 便于在之后的查询中, 用户使用频率最高的排在最高位
+            string[] strTemp = txtMailAddress.Text.Trim().Split('@');
+            string strHotIndexByAddress = "@" + strTemp[1].ToString();
+            string strSQLUpdateHotIndex = string.Empty;
+            strSQLUpdateHotIndex = $"update MailAddress set HotIndex +=1 where address='{strHotIndexByAddress}'";
+
+            SqlConnection conn = new SqlConnection()
+            {
+                ConnectionString = @"Data Source=182.254.223.162;Persist Security Info=True;User ID=sa;Password=113210xlm~!",
+            };
+
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand()
+            {
+                Connection = conn,
+                CommandText = strSQLUpdateHotIndex,
+            };
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
         }
     }
 }

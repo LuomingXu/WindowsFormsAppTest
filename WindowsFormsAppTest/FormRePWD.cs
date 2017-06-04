@@ -69,7 +69,7 @@ namespace WindowsFormsAppTest
 
             SqlConnection conn = new SqlConnection
             {
-                ConnectionString = @"Data Source = 徐络溟\SQLEXPRESS; Integrated Security = True"
+                ConnectionString = @"Data Source=182.254.223.162;Persist Security Info=True;User ID=sa;Password=113210xlm~!"
             };
             conn.Open();
 

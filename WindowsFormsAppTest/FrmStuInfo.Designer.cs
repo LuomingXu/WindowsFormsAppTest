@@ -379,49 +379,55 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1067, 457);
+            this.label8.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(1003, 448);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 24);
+            this.label8.Size = new System.Drawing.Size(165, 37);
             this.label8.TabIndex = 34;
             this.label8.Text = "课程编号";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1067, 610);
+            this.label9.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.Location = new System.Drawing.Point(1003, 601);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 24);
+            this.label9.Size = new System.Drawing.Size(91, 37);
             this.label9.TabIndex = 35;
             this.label9.Text = "成绩";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1067, 535);
+            this.label10.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.Location = new System.Drawing.Point(1003, 526);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(106, 24);
+            this.label10.Size = new System.Drawing.Size(165, 37);
             this.label10.TabIndex = 36;
             this.label10.Text = "课程名称";
             // 
             // txtCourseNumber
             // 
+            this.txtCourseNumber.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtCourseNumber.Location = new System.Drawing.Point(1207, 445);
             this.txtCourseNumber.Name = "txtCourseNumber";
-            this.txtCourseNumber.Size = new System.Drawing.Size(206, 35);
+            this.txtCourseNumber.Size = new System.Drawing.Size(206, 50);
             this.txtCourseNumber.TabIndex = 8;
             // 
             // txtCourseName
             // 
+            this.txtCourseName.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtCourseName.Location = new System.Drawing.Point(1207, 532);
             this.txtCourseName.Name = "txtCourseName";
-            this.txtCourseName.Size = new System.Drawing.Size(206, 35);
+            this.txtCourseName.Size = new System.Drawing.Size(206, 50);
             this.txtCourseName.TabIndex = 9;
             // 
             // txtGrade
             // 
+            this.txtGrade.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtGrade.Location = new System.Drawing.Point(1207, 598);
             this.txtGrade.Name = "txtGrade";
-            this.txtGrade.Size = new System.Drawing.Size(206, 35);
+            this.txtGrade.Size = new System.Drawing.Size(206, 50);
             this.txtGrade.TabIndex = 10;
             // 
             // FrmStuInfo

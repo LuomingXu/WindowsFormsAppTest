@@ -36,7 +36,7 @@ namespace WindowsFormsAppTest
 
             SqlConnection conn = new SqlConnection()
             {
-                ConnectionString = @"Data Source=徐络溟\SQLEXPRESS;Integrated Security=True"
+                ConnectionString = @"Data Source=182.254.223.162;Persist Security Info=True;User ID=sa;Password=113210xlm~!"
             };
 
             SqlCommand cmd = new SqlCommand()
@@ -83,7 +83,7 @@ namespace WindowsFormsAppTest
 
             SqlConnection conn = new SqlConnection()
             {
-                ConnectionString = @"Data Source=徐络溟\SQLEXPRESS;Integrated Security=True"
+                ConnectionString = @"Data Source=182.254.223.162;Persist Security Info=True;User ID=sa;Password=113210xlm~!"
             };
 
             SqlCommand cmd = new SqlCommand()
@@ -126,7 +126,7 @@ namespace WindowsFormsAppTest
 
             SqlConnection conn = new SqlConnection()
             {
-                ConnectionString = @"Data Source=徐络溟\SQLEXPRESS;Integrated Security=True"
+                ConnectionString = @"Data Source=182.254.223.162;Persist Security Info=True;User ID=sa;Password=113210xlm~!"
             };
 
             SqlCommand cmd = new SqlCommand()
@@ -158,7 +158,6 @@ namespace WindowsFormsAppTest
                         ": " +
                         ds.Tables["省表"].Rows[i][1].ToString());
                 }
-
             }
             else
             {
@@ -206,7 +205,7 @@ namespace WindowsFormsAppTest
 
             SqlConnection connSQL = new SqlConnection()
             {
-                ConnectionString = @"Data Source = 徐络溟\SQLEXPRESS; Integrated Security = True",
+                ConnectionString = @"Data Source=182.254.223.162;Persist Security Info=True;User ID=sa;Password=113210xlm~!",
             };
 
             connSQL.Open();
@@ -284,7 +283,7 @@ namespace WindowsFormsAppTest
 
             SqlConnection conn = new SqlConnection()
             {
-                ConnectionString = @"Data Source = 徐络溟\SQLEXPRESS; Integrated Security = True"
+                ConnectionString = @"Data Source=182.254.223.162;Persist Security Info=True;User ID=sa;Password=113210xlm~!"
             };
 
             conn.Open();
@@ -334,7 +333,7 @@ namespace WindowsFormsAppTest
 
             //数据库连接
             SqlConnection connSQL = new SqlConnection();
-            connSQL.ConnectionString = @"Data Source = 徐络溟\SQLEXPRESS; Integrated Security = True";
+            connSQL.ConnectionString = @"Data Source=182.254.223.162;Persist Security Info=True;User ID=sa;Password=113210xlm~!";
             connSQL.Open();
             //封装SQL命令
             SqlCommand cmdSQL = new SqlCommand();
@@ -396,7 +395,7 @@ namespace WindowsFormsAppTest
             //数据库连接
             SqlConnection connSQL = new SqlConnection()
             {
-                ConnectionString = @"Data Source = 徐络溟\SQLEXPRESS; Integrated Security = True"
+                ConnectionString = @"Data Source=182.254.223.162;Persist Security Info=True;User ID=sa;Password=113210xlm~!"
             };
             connSQL.Open();
             //封装SQL命令

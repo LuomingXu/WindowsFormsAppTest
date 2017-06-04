@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Collections;//ArrayList类的using
 
 namespace WindowsFormsAppTest
 {
@@ -196,7 +197,7 @@ namespace WindowsFormsAppTest
         {
             SqlConnection conn = new SqlConnection()
             {
-                ConnectionString = @"Data Source=徐络溟\SQLEXPRESS;Integrated Security=True"
+                ConnectionString = @"Data Source=182.254.223.162;Persist Security Info=True;User ID=sa;Password=113210xlm~!"
             };
             SqlCommand cmd = new SqlCommand()
             {
@@ -207,6 +208,26 @@ namespace WindowsFormsAppTest
             SqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
             MessageBox.Show(Convert.ToString( reader[0]), "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void txbClass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpBirthday_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbNumber_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTime_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

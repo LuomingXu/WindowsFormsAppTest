@@ -44,7 +44,7 @@ namespace WindowsFormsAppTest
             // Login
             // 
             this.Login.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Login.Location = new System.Drawing.Point(100, 236);
+            this.Login.Location = new System.Drawing.Point(60, 200);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(179, 89);
             this.Login.TabIndex = 3;
@@ -56,7 +56,7 @@ namespace WindowsFormsAppTest
             // 
             this.Cancle.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancle.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Cancle.Location = new System.Drawing.Point(631, 236);
+            this.Cancle.Location = new System.Drawing.Point(591, 200);
             this.Cancle.Name = "Cancle";
             this.Cancle.Size = new System.Drawing.Size(173, 85);
             this.Cancle.TabIndex = 5;
@@ -68,7 +68,7 @@ namespace WindowsFormsAppTest
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(176, 66);
+            this.label1.Location = new System.Drawing.Point(136, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 37);
             this.label1.TabIndex = 2;
@@ -78,7 +78,7 @@ namespace WindowsFormsAppTest
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(197, 146);
+            this.label2.Location = new System.Drawing.Point(157, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 37);
             this.label2.TabIndex = 3;
@@ -87,7 +87,7 @@ namespace WindowsFormsAppTest
             // textID
             // 
             this.textID.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textID.Location = new System.Drawing.Point(394, 66);
+            this.textID.Location = new System.Drawing.Point(354, 30);
             this.textID.Name = "textID";
             this.textID.Size = new System.Drawing.Size(278, 50);
             this.textID.TabIndex = 1;
@@ -95,7 +95,7 @@ namespace WindowsFormsAppTest
             // textPWD
             // 
             this.textPWD.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textPWD.Location = new System.Drawing.Point(394, 146);
+            this.textPWD.Location = new System.Drawing.Point(354, 110);
             this.textPWD.Name = "textPWD";
             this.textPWD.PasswordChar = '*';
             this.textPWD.Size = new System.Drawing.Size(278, 50);
@@ -104,7 +104,7 @@ namespace WindowsFormsAppTest
             // btnRegister
             // 
             this.btnRegister.Font = new System.Drawing.Font("宋体", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnRegister.Location = new System.Drawing.Point(367, 236);
+            this.btnRegister.Location = new System.Drawing.Point(327, 200);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(210, 89);
             this.btnRegister.TabIndex = 4;
@@ -114,7 +114,7 @@ namespace WindowsFormsAppTest
             // 
             // BtnForgetPWD
             // 
-            this.BtnForgetPWD.Location = new System.Drawing.Point(727, 428);
+            this.BtnForgetPWD.Location = new System.Drawing.Point(527, 326);
             this.BtnForgetPWD.Name = "BtnForgetPWD";
             this.BtnForgetPWD.Size = new System.Drawing.Size(246, 57);
             this.BtnForgetPWD.TabIndex = 6;
@@ -126,7 +126,7 @@ namespace WindowsFormsAppTest
             // 
             this.AcceptButton = this.Login;
             this.CancelButton = this.Cancle;
-            this.ClientSize = new System.Drawing.Size(1028, 497);
+            this.ClientSize = new System.Drawing.Size(873, 405);
             this.Controls.Add(this.BtnForgetPWD);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.textPWD);
@@ -161,7 +161,7 @@ namespace WindowsFormsAppTest
 
             SqlConnection conn = new SqlConnection//链接数据库
             {
-                ConnectionString = @"Data Source = 徐络溟\SQLEXPRESS; Integrated Security = True"
+                ConnectionString = @"Data Source=182.254.223.162;Persist Security Info=True;User ID=sa;Password=113210xlm~!"
             };
 
             conn.Open();
@@ -180,27 +180,38 @@ namespace WindowsFormsAppTest
             if (count == 1)
             {
                 MessageBox.Show("登录成功!", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cmd.CommandText = $"select * from 学生信息表 where 学号='{strID}'";
-                SqlDataReader reader = cmd.ExecuteReader();
-                reader.Read();
 
-                frmStuInfo.txbNumber.Text = Convert.ToString(reader[0]);
-                frmStuInfo.txtName.Text = Convert.ToString(reader[1]);
-                frmStuInfo.txbClass.Text = Convert.ToString(reader[2]);
-                if (Convert.ToString(reader[3]).Equals("男"))
+                try
                 {
-                    frmStuInfo.rdbMale.Checked = true;
+                    cmd.CommandText = $"select * from 学生信息表 where 学号='{strID}'";
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    reader.Read();
+
+                    frmStuInfo.txbNumber.Text = Convert.ToString(reader[0]);
+                    frmStuInfo.txtName.Text = Convert.ToString(reader[1]);
+                    frmStuInfo.txbClass.Text = Convert.ToString(reader[2]);
+                    if (Convert.ToString(reader[3]).Equals("男"))
+                    {
+                        frmStuInfo.rdbMale.Checked = true;
+                    }
+                    else
+                    {
+                        frmStuInfo.rdbFemale.Checked = true;
+                    }
+                    frmStuInfo.cmbSheng.Text = Convert.ToString(reader[4]);
+
+                    Close();
+                    frmStuInfo.Show();
+
+                    conn.Close();
+                    Close();
                 }
-                else
+                catch(Exception e_login)
                 {
-                    frmStuInfo.rdbFemale.Checked = true;
+                    MessageBox.Show(e_login.Message+"\n"+"也许是不存在此学号的学生", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Close();
                 }
-                frmStuInfo.cmbSheng.Text = Convert.ToString(reader[4]);
-
-                frmStuInfo.Show();
-
-                conn.Close();
-                Close();
+               
             }
             else
             {
